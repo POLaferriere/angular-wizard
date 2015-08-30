@@ -29,6 +29,15 @@ angular.module('mgo-angular-wizard').directive('wizard', function() {
             //steps array where all the scopes of each step are added
             $scope.steps = [];
 
+            //expose steps for special circumstances
+            this.getSteps = function() {
+                var ret = {};
+                _.each($scope.steps, function(step) {
+                    ret[step.title.toLowerCase()] = step;
+                });
+                return ret;
+            };
+
             //access to context object for step validation
             $scope.context = {};
 
