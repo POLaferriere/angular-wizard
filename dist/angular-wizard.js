@@ -1,6 +1,6 @@
 /**
  * Easy to use Wizard library for AngularJS
- * @version v0.5.4 - 2015-08-30 * @link https://github.com/mgonto/angular-wizard
+ * @version v0.5.4 - 2016-06-27 * @link https://github.com/mgonto/angular-wizard
  * @author Martin Gontovnikas <martin@gon.to>
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -101,7 +101,7 @@ angular.module('mgo-angular-wizard').directive('wizard', function() {
                 var stepTitle = $scope.selectedStep.title || $scope.selectedStep.wzTitle;
                 if ($scope.selectedStep && stepTitle !== $scope.currentStep) {
                     //invoking goTo() with step title as argument
-                    $scope.goTo(_.findWhere($scope.getEnabledSteps(), {title: $scope.currentStep}));
+                    $scope.goTo(_.find($scope.getEnabledSteps(), {title: $scope.currentStep}));
                 }
 
             });
@@ -297,7 +297,7 @@ angular.module('mgo-angular-wizard').directive('wizard', function() {
                     stepTo = enabledSteps[step];
                 } else {
                     //finding the step associated with the title entered as goTo argument
-                    stepTo = _.findWhere(enabledSteps, {title: step});
+                    stepTo = _.find(enabledSteps, {title: step});
                 }
                 //going to step
                 $scope.goTo(stepTo);
